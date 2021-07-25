@@ -23,11 +23,11 @@ controller.B.on_event(ControllerButtonEvent.PRESSED, on_b_pressed)
 
 def on_check_pressed():
     if check_my_morse_code():
-        my_morse_code_lable_1.set_text("right")
+        my_morse_code_lable_1.set_text("correct")
         my_morse_code_lable_2.set_text("")
         music.play_tone(Note.C, BeatFraction.BREVE)
     else:
-        my_morse_code_lable_1.set_text("error")
+        my_morse_code_lable_1.set_text("incorrect")
         my_morse_code_lable_2.set_text("")
         pins.pin_by_cfg(101).digital_write(True)
         pause(100)
