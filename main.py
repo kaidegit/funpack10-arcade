@@ -1,12 +1,13 @@
 def generate_morse_str():
-    global num_of_char, morse_str, morse_code_list
+    global num_of_char, morse_str, morse_code_list, cheat_code
     num_of_char = randint(0, 2) + 3
     for index in range(num_of_char):
         ran = randint(0, 38)
         morse_str = "" + morse_str + morse_char[ran]
         morse_code_list = "" + morse_code_list + morse_code[ran]
     morse_str_lable.set_text(morse_str)
-    right_morse_code_lable.set_text(morse_code_list)
+    if cheat_code:
+        right_morse_code_lable.set_text(morse_code_list)
 
 def on_a_pressed():
     global my_morse_code
@@ -42,6 +43,15 @@ def on_back_pressed():
     show_my_morse_code(my_morse_code)
 controller.left.on_event(ControllerButtonEvent.PRESSED, on_back_pressed)
 
+def cheat_code_switch():
+    global cheat_code, morse_code_list
+    cheat_code = not cheat_code
+    if cheat_code:
+        right_morse_code_lable.set_text(morse_code_list)
+    else:
+        right_morse_code_lable.set_text("")
+controller.up.on_event(ControllerButtonEvent.PRESSED, cheat_code_switch)
+
 def show_my_morse_code(my_morse_code: str):
     if len(my_morse_code) > 11:
         my_morse_code_lable_1.set_text(my_morse_code.slice(0, 11))
@@ -70,6 +80,7 @@ def init():
     morse_str_lable.set_text("")
     generate_morse_str()
 
+cheat_code = False
 morse_code_list = ""
 morse_str = ""
 num_of_char = 0
