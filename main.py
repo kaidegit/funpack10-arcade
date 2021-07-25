@@ -1,6 +1,7 @@
 def generate_morse_str():
     global num_of_char, morse_str, morse_code_list, cheat_code
-    num_of_char = randint(0, 2) + 3
+    # num_of_char = randint(0, 2) + 3
+    num_of_char = 1
     for index in range(num_of_char):
         ran = randint(0, 38)
         morse_str = "" + morse_str + morse_char[ran]
