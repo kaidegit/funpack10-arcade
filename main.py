@@ -24,6 +24,7 @@ def on_check_pressed():
     if check_my_morse_code():
         my_morse_code_lable_1.set_text("right")
         my_morse_code_lable_2.set_text("")
+        music.play_tone(Note.C, BeatFraction.BREVE)
     else:
         my_morse_code_lable_1.set_text("error")
         my_morse_code_lable_2.set_text("")
@@ -50,6 +51,7 @@ def check_my_morse_code():
 def init():
     global morse_code_list,morse_str,my_morse_code
     global my_morse_code_lable_1,my_morse_code_lable_2,morse_str_lable
+    music.stop_all_sounds()
     morse_code_list = ""
     morse_str = ""
     my_morse_code = ""
