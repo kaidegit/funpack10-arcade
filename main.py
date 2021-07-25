@@ -35,6 +35,13 @@ def on_check_pressed():
     init()
 controller.right.on_event(ControllerButtonEvent.PRESSED, on_check_pressed)
 
+def on_back_pressed():
+    global my_morse_code
+    if len(my_morse_code) >= 1:
+        my_morse_code = my_morse_code[:-1]
+    show_my_morse_code(my_morse_code)
+controller.left.on_event(ControllerButtonEvent.PRESSED, on_back_pressed)
+
 def show_my_morse_code(my_morse_code: str):
     if len(my_morse_code) > 11:
         my_morse_code_lable_1.set_text(my_morse_code.slice(0, 11))
