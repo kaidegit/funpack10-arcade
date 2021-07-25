@@ -28,6 +28,9 @@ def on_check_pressed():
     else:
         my_morse_code_lable_1.set_text("error")
         my_morse_code_lable_2.set_text("")
+        pins.pin_by_cfg(101).digital_write(True)
+        pause(100)
+        pins.pin_by_cfg(101).digital_write(False)
     pause(3000)
     init()
 controller.right.on_event(ControllerButtonEvent.PRESSED, on_check_pressed)
