@@ -27,6 +27,8 @@ def on_check_pressed():
     else:
         my_morse_code_lable_1.set_text("error")
         my_morse_code_lable_2.set_text("")
+    pause(3000)
+    init()
 controller.right.on_event(ControllerButtonEvent.PRESSED, on_check_pressed)
 
 def show_my_morse_code(my_morse_code: str):
@@ -45,6 +47,16 @@ def check_my_morse_code():
         i += 1
     return True
 
+def init():
+    global morse_code_list,morse_str,my_morse_code
+    global my_morse_code_lable_1,my_morse_code_lable_2,morse_str_lable
+    morse_code_list = ""
+    morse_str = ""
+    my_morse_code = ""
+    my_morse_code_lable_1.set_text("")
+    my_morse_code_lable_2.set_text("")
+    morse_str_lable.set_text("")
+    generate_morse_str()
 
 morse_code_list = ""
 morse_str = ""
@@ -147,5 +159,5 @@ my_morse_code_lable_2.set_max_font_height(12)
 my_morse_code_lable_2.set_position(20, 93)
 right_morse_code_lable = textsprite.create("")
 right_morse_code_lable.set_max_font_height(12)
-right_morse_code_lable.set_position(20, 113)
-generate_morse_str()
+right_morse_code_lable.set_position(0, 113)
+init()

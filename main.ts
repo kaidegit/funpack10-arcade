@@ -30,6 +30,8 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function on_check_presse
         my_morse_code_lable_2.setText("")
     }
     
+    pause(3000)
+    init()
 })
 function show_my_morse_code(my_morse_code: string) {
     if (my_morse_code.length > 11) {
@@ -51,6 +53,18 @@ function check_my_morse_code(): boolean {
         i += 1
     }
     return true
+}
+
+function init() {
+    
+    
+    morse_code_list = ""
+    morse_str = ""
+    my_morse_code = ""
+    my_morse_code_lable_1.setText("")
+    my_morse_code_lable_2.setText("")
+    morse_str_lable.setText("")
+    generate_morse_str()
 }
 
 let morse_code_list = ""
@@ -78,5 +92,5 @@ my_morse_code_lable_2.setMaxFontHeight(12)
 my_morse_code_lable_2.setPosition(20, 93)
 right_morse_code_lable = textsprite.create("")
 right_morse_code_lable.setMaxFontHeight(12)
-right_morse_code_lable.setPosition(20, 113)
-generate_morse_str()
+right_morse_code_lable.setPosition(0, 113)
+init()
