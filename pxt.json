@@ -6,8 +6,6 @@
         "arcade-text": "github:microsoft/arcade-text#v1.3.0"
     },
     "files": [
-        "main.blocks",
-        "main.ts",
         "README.md",
         "assets.json",
         "main.py"
