@@ -61,6 +61,8 @@ def show_my_morse_code(my_morse_code: str):
         my_morse_code_lable_1.set_text(my_morse_code)
 
 def check_my_morse_code():
+    if len(my_morse_code) != len(morse_code_list):
+        return False
     i = 0
     while i <= len(morse_code_list) - 1:
         if not (((my_morse_code[i] == '`') and (morse_code_list[i] == 'a')) or
